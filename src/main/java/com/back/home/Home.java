@@ -8,6 +8,6 @@ public class Home {
 
     @GetMapping("/")
     public String home(){
-        return "redirect:/article_list";
+        return "redirect:/article/list";
     }
 }
