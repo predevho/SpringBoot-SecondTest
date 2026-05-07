@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>게시글 상세</title>
 </head>
 <body>
-    <h1>게시글 상세</h1>
+<h1>게시글 상세</h1>
 
-    <table border="1">
-        <tr>
-            <th>번호</th>
-            <td th:text="${article.id}"></td>
-        </tr>
-        <tr>
-            <th>제목</th>
-            <td th:text="${article.title}"></td>
-        </tr>
-        <tr>
-            <th>내용</th>
-            <td th:text="${article.content}"></td>
-        </tr>
-        <tr>
-            <th>작성일</th>
-            <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
-        </tr>
-    </table>
-
-    <a th:href="@{/article/list}"><button>목록으로</button></a>
+<table border="1">
+    <tr>
+        <th>번호</th>
+        <td th:text="${article.id}"></td>
+    </tr>
+    <tr>
+        <th>제목</th>
+        <td th:text="${article.title}"></td>
+    </tr>
+    <tr>
+        <th>내용</th>
+        <td th:text="${article.content}"></td>
+    </tr>
+    <tr>
+        <th>작성일</th>
+        <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+    </tr>
+</table>
+<a th:href="@{/article/list}">
+    <button>목록으로</button>
+</a>
 </body>
 </html>

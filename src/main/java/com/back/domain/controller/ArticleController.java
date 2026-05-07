@@ -34,10 +34,13 @@ public class ArticleController {
     }
 
     @GetMapping("/detail/{id}")
-    public String articleDetail(@PathVariable Long id, Model model) {
-        model.addAttribute("article", articleService.getArticleById(id).orElse(null));
+    public String articleDetail(Model model, @PathVariable("id") long id) {
+        Article article = articleService.getArticleById(id);
+        model.addAttribute("article", article);
         return "article_detail";
     }
+
+
 
 }
 

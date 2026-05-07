@@ -1,5 +1,6 @@
 package com.back.domain.service;
 
+import com.back.DataNotFoundException;
 import com.back.domain.entity.Article;
 import com.back.domain.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,8 +27,13 @@ public class ArticleService {
         return articleRepository.findAll();
     }
 
-    public Optional<Article> getArticleById(Long id) {
-        return articleRepository.findById(id);
+    public Article getArticleById(Long id) {
+        Optional<Article> op = articleRepository.findById(id);
+        if(op.isPresent()) {
+            return op.get();
+        }else{
+            throw new DataNotFoundException("article not found");
+        }
 
     }
 }
