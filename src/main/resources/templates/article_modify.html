@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.au/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8">
     <title>게시글 수정</title>
 </head>
 <body>
+<th:block layout:fragment="content">
     <h1>게시글 수정</h1>
     <form th:action="@{/article/modify/{id}(id=${article.id})}" method="post">
         <div>
@@ -18,5 +19,6 @@
         <button type="submit">수정</button>
         <a th:href="@{/article/detail/{id}(id=${article.id})}"><button type="button">취소</button></a>
     </form>
+</th:block>
 </body>
 </html>
