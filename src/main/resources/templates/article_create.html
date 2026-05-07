@@ -6,18 +6,23 @@
 </head>
 <body>
 <th:block layout:fragment="content">
-    <h1>게시글 등록</h1>
-    <form th:action="@{/article/create}" method="post">
-        <div>
-            <label for="title">제목</label>
-            <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
-        </div>
-        <div>
-            <label for="content">내용</label>
-            <textarea id="content" name="content" placeholder="내용을 입력하세요"></textarea>
-        </div>
-        <button type="submit">등록</button>
-    </form>
+    <div class="container my-4">
+        <h2 class="mb-4">게시글 등록</h2>
+        <form th:action="@{/article/create}" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">제목</label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="제목을 입력하세요">
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">내용</label>
+                <textarea id="content" name="content" class="form-control" rows="8" placeholder="내용을 입력하세요"></textarea>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">등록</button>
+                <a th:href="@{/article/list}" class="btn btn-secondary">취소</a>
+            </div>
+        </form>
+    </div>
 </th:block>
 </body>
 </html>

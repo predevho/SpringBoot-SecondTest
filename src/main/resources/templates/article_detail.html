@@ -6,31 +6,34 @@
 </head>
 <body>
 <th:block layout:fragment="content">
-    <h1>게시글 상세</h1>
-
-    <table border="1">
-        <tr>
-            <th>번호</th>
-            <td th:text="${article.id}"></td>
-        </tr>
-        <tr>
-            <th>제목</th>
-            <td th:text="${article.title}"></td>
-        </tr>
-        <tr>
-            <th>내용</th>
-            <td th:text="${article.content}"></td>
-        </tr>
-        <tr>
-            <th>작성일</th>
-            <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
-        </tr>
-    </table>
-    <a th:href="@{/article/modify/{id}(id=${article.id})}"><button>수정</button></a>
-    <form id="deleteForm" th:action="@{/article/delete/{id}(id=${article.id})}" method="post" style="display:inline">
-        <button type="button" class="delete">삭제</button>
-    </form>
-    <a th:href="@{/article/list}"><button type="button">목록으로</button></a>
+    <div class="container my-4">
+        <h2 class="mb-4">게시글 상세</h2>
+        <table class="table table-bordered">
+            <tr>
+                <th class="table-secondary" style="width: 15%">번호</th>
+                <td th:text="${article.id}"></td>
+            </tr>
+            <tr>
+                <th class="table-secondary">제목</th>
+                <td th:text="${article.title}"></td>
+            </tr>
+            <tr>
+                <th class="table-secondary">내용</th>
+                <td th:text="${article.content}" style="white-space: pre-wrap;"></td>
+            </tr>
+            <tr>
+                <th class="table-secondary">작성일</th>
+                <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+            </tr>
+        </table>
+        <div class="d-flex gap-2 mt-3">
+            <a th:href="@{/article/modify/{id}(id=${article.id})}" class="btn btn-warning">수정</a>
+            <form id="deleteForm" th:action="@{/article/delete/{id}(id=${article.id})}" method="post">
+                <button type="button" class="btn btn-danger delete">삭제</button>
+            </form>
+            <a th:href="@{/article/list}" class="btn btn-secondary">목록으로</a>
+        </div>
+    </div>
 </th:block>
 
 <th:block layout:fragment="script">
