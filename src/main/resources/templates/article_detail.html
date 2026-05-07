@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>게시글 상세</title>
@@ -26,9 +26,19 @@
     </tr>
 </table>
 <a th:href="@{/article/modify/{id}(id=${article.id})}"><button>수정</button></a>
-<form th:action="@{/article/delete/{id}(id=${article.id})}" method="post" style="display:inline">
-    <button type="submit">삭제</button>
+<form id="deleteForm" th:action="@{/article/delete/{id}(id=${article.id})}" method="post" style="display:inline">
+    <button type="button" class="delete">삭제</button>
 </form>
 <a th:href="@{/article/list}"><button type="button">목록으로</button></a>
+<script type='text/javascript'>
+    const delete_elements = document.getElementsByClassName("delete");
+    Array.from(delete_elements).forEach(function(element) {
+        element.addEventListener('click', function() {
+            if(confirm("정말로 삭제하시겠습니까?")) {
+                document.getElementById("deleteForm").submit();
+            }
+        });
+    });
+</script>
 </body>
 </html>
