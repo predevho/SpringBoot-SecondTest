@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>게시글 상세</title>
@@ -24,6 +24,11 @@
         <th>작성일</th>
         <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
     </tr>
+    <div>
+        <a th:href="@{/article/modify/{id}(id=${article.id})}">
+            <button>수정</button>
+        </a>
+    </div>
 </table>
 <a th:href="@{/article/list}">
     <button>목록으로</button>

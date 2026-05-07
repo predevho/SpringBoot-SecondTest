@@ -23,6 +23,14 @@ public class ArticleService {
         articleRepository.save(article);
     }
 
+    public void modifyArticle(Long id, String title, String content) {
+        Article article = getArticleById(id);
+        article.setTitle(title);
+        article.setContent(content);
+        article.setModifyDate(LocalDateTime.now());
+        articleRepository.save(article);
+    }
+
     public List<Article> getList() {
         return articleRepository.findAll();
     }
