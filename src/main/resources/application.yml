@@ -5,9 +5,9 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     # [DB명] 은 교체
-    url: jdbc:mysql://localhost:3306/[DB명]?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useSSL=false
+    url: jdbc:mysql://localhost:3306/aritlce?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useSSL=false
     username: root
-    password:
+    password: 1234
 
   jpa:
     hibernate:
