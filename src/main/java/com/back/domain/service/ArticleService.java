@@ -31,6 +31,10 @@ public class ArticleService {
         articleRepository.save(article);
     }
 
+    public void deleteArticle(Article article) {
+        articleRepository.delete(article);
+    }
+
     public List<Article> getList() {
         return articleRepository.findAll();
     }
@@ -44,4 +48,5 @@ public class ArticleService {
         }
 
     }
+
 }

@@ -24,14 +24,11 @@
         <th>작성일</th>
         <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
     </tr>
-    <div>
-        <a th:href="@{/article/modify/{id}(id=${article.id})}">
-            <button>수정</button>
-        </a>
-    </div>
 </table>
-<a th:href="@{/article/list}">
-    <button>목록으로</button>
-</a>
+<a th:href="@{/article/modify/{id}(id=${article.id})}"><button>수정</button></a>
+<form th:action="@{/article/delete/{id}(id=${article.id})}" method="post" style="display:inline">
+    <button type="submit">삭제</button>
+</form>
+<a th:href="@{/article/list}"><button type="button">목록으로</button></a>
 </body>
 </html>

@@ -52,5 +52,13 @@ public class ArticleController {
         articleService.modifyArticle(id, article.getTitle(), article.getContent());
         return "redirect:/article/detail/" + id;
     }
+
+    @PostMapping("/delete/{id}")
+    public String articleDelete(@PathVariable("id") long id) {
+        Article article = articleService.getArticleById(id);
+        articleService.deleteArticle(article);
+        return "redirect:/article/list";
+    }
+
 }
 
