@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: back
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # [DB명] 은 교체
+    url: jdbc:mysql://localhost:3306/[DB명]?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useSSL=false
+    username: root
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        show_sql: true
+
+# LOGGING
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.orm.jdbc.extract: TRACE
