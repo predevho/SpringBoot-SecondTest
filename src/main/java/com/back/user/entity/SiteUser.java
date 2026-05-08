@@ -17,8 +17,7 @@ public class SiteUser {
 
     private String password;
 
-    @Column(unique = true)
-    private String email;
+    private String nickname;
 
     @Enumerated(EnumType.STRING)
     private UserRole role;
