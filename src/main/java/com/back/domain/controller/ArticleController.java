@@ -8,10 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
@@ -24,8 +21,9 @@ public class ArticleController {
     private final UserService userService;
 
     @GetMapping("/list")
-    public String list(Model model) {
-        model.addAttribute("articleList", articleService.getList());
+    public String list(Model model, @RequestParam(value = "kw", defaultValue = "") String kw) {
+        model.addAttribute("articleList", articleService.getList(kw));
+        model.addAttribute("kw", kw);
         return "article_list";
     }
 
