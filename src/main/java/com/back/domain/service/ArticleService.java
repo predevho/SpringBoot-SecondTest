@@ -3,6 +3,7 @@ package com.back.domain.service;
 import com.back.DataNotFoundException;
 import com.back.domain.entity.Article;
 import com.back.domain.repository.ArticleRepository;
+import com.back.user.entity.SiteUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,9 @@ import java.util.Optional;
 public class ArticleService {
     private final ArticleRepository articleRepository;
 
-    public void createArticle(String title, String content) {
+    public void createArticle(String title, String content, SiteUser author) {
         Article article = new Article();
+        article.setAuthor(author);
         article.setTitle(title);
         article.setContent(content);
         article.setCreateDate(LocalDateTime.now());

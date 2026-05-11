@@ -1,5 +1,6 @@
 package com.back.user.service;
 
+import com.back.DataNotFoundException;
 import com.back.user.entity.SiteUser;
 import com.back.user.entity.UserRole;
 import com.back.user.repository.UserRepository;
@@ -21,5 +22,9 @@ public class UserService {
         user.setRole(UserRole.USER);
         this.userRepository.save(user);
         return user;
+    }
+
+    public SiteUser getUser(String username) {
+        return userRepository.findByUsername(username).orElseThrow(() -> new DataNotFoundException("user not found"));
     }
 }
