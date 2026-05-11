@@ -11,6 +11,13 @@
             <h2>게시글 목록</h2>
             <a th:href="@{/article/create}" class="btn btn-primary">등록</a>
         </div>
+        <form th:action="@{/article/list}" method="get" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="kw" th:value="${kw}" class="form-control" placeholder="검색어를 입력하세요">
+                <button type="submit" class="btn btn-outline-secondary">검색</button>
+            </div>
+        </form>
+
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
                 <tr>
